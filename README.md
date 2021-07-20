@@ -18,3 +18,4 @@ While in the root directory of this repository,
 `python3 scripts/update-header.py`
 
 5. Move the static website content to the project root, and push the new changes.  
+`cp -r ./static/* ./`
