@@ -8,7 +8,7 @@
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" type="text/css" href="/assets/built/screen.css?v=a9e1f18b4b" />
+    <link rel="stylesheet" type="text/css" href="/assets/built/screen.css?v=8d8ebc2168" />
 
     <meta name="generator" content="Ghost 4.10" />
     <link rel="alternate" type="application/rss+xml" title="Stuff, and things." href="http://localhost:2368/rss/" />
@@ -67,6 +67,50 @@
 
 <aside class="read-more-wrap">
     <div class="read-more inner">
+                    
+<article class="post-card post ">
+
+    <a class="post-card-image-link" href="/how-to-install-jdk-mission-control-in-fedora-via-copr/">
+        <img class="post-card-image"
+            srcset="/content/images/size/w300/2021/12/copr-jmc-agent.png 300w,
+                    /content/images/size/w600/2021/12/copr-jmc-agent.png 600w,
+                    /content/images/size/w1000/2021/12/copr-jmc-agent.png 1000w,
+                    /content/images/size/w2000/2021/12/copr-jmc-agent.png 2000w"
+            sizes="(max-width: 1000px) 400px, 800px"
+            src="/content/images/size/w600/2021/12/copr-jmc-agent.png"
+            alt="How to install the JDK Mission Control Agent in Fedora via COPR"
+            loading="lazy"
+        />
+    </a>
+
+    <div class="post-card-content">
+
+        <a class="post-card-content-link" href="/how-to-install-jdk-mission-control-in-fedora-via-copr/">
+            <header class="post-card-header">
+                <h2 class="post-card-title">How to install the JDK Mission Control Agent in Fedora via COPR</h2>
+            </header>
+            <section class="post-card-excerpt">
+                <p>In a previous post (https://aptmac.github.io/installing-jmc-in-fedora/), I wrote about how to install JMC on Fedora via copr. I'm back with an update; the JMC Agent (v.1.0.1) is now available through copr as well! One of the big features included in the JMC 8.1.</p>
+            </section>
+        </a>
+
+        <footer class="post-card-meta">
+            <ul class="author-list">
+                <li class="author-list-item">
+                    <a href="/author/aptmac/" class="static-avatar">
+                        <img class="author-profile-image" src="/content/images/size/w100/2021/07/a.jpg" alt="aptmac" />
+                    </a>
+                </li>
+            </ul>
+            <div class="post-card-byline-content">
+                <span><a href="/author/aptmac/">aptmac</a></span>
+                <span class="post-card-byline-date"><time datetime="2021-12-06">Dec 6, 2021</time> <span class="bull">&bull;</span> 1 min read</span>
+            </div>
+        </footer>
+
+    </div>
+
+</article>
                     
 <article class="post-card post ">
 
@@ -155,50 +199,6 @@
     </div>
 
 </article>
-                    
-<article class="post-card post ">
-
-    <a class="post-card-image-link" href="/hello-world/">
-        <img class="post-card-image"
-            srcset="/content/images/size/w300/2021/07/a.png 300w,
-                    /content/images/size/w600/2021/07/a.png 600w,
-                    /content/images/size/w1000/2021/07/a.png 1000w,
-                    /content/images/size/w2000/2021/07/a.png 2000w"
-            sizes="(max-width: 1000px) 400px, 800px"
-            src="/content/images/size/w600/2021/07/a.png"
-            alt="Hello World!"
-            loading="lazy"
-        />
-    </a>
-
-    <div class="post-card-content">
-
-        <a class="post-card-content-link" href="/hello-world/">
-            <header class="post-card-header">
-                <h2 class="post-card-title">Hello World!</h2>
-            </header>
-            <section class="post-card-excerpt">
-                <p>おはよう世界.</p>
-            </section>
-        </a>
-
-        <footer class="post-card-meta">
-            <ul class="author-list">
-                <li class="author-list-item">
-                    <a href="/author/aptmac/" class="static-avatar">
-                        <img class="author-profile-image" src="/content/images/size/w100/2021/07/a.jpg" alt="aptmac" />
-                    </a>
-                </li>
-            </ul>
-            <div class="post-card-byline-content">
-                <span><a href="/author/aptmac/">aptmac</a></span>
-                <span class="post-card-byline-date"><time datetime="2021-06-21">Jun 21, 2021</time> <span class="bull">&bull;</span> 1 min read</span>
-            </div>
-        </footer>
-
-    </div>
-
-</article>
     </div>
 </aside>
     </main>
@@ -226,7 +226,7 @@
     integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
     crossorigin="anonymous">
 </script>
-<script src="/assets/built/casper.js?v=a9e1f18b4b"></script>
+<script src="/assets/built/casper.js?v=8d8ebc2168"></script>
 <script>
 $(document).ready(function () {
     // Mobile Menu Trigger
