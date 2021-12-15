@@ -2,30 +2,76 @@
 
 <html lang="en">
 <head>
-<title>aptmac - Stuff, and things.</title>
+<title>How to install the JDK Mission Control Agent in Fedora via COPR</title>
 <meta charset="utf-8"/>
 <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
 <meta content="True" name="HandheldFriendly"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <link href="/assets/built/screen.css?v=2c845b16f8" rel="stylesheet" type="text/css"/>
 <link href="/favicon.png" rel="icon" type="image/png"/>
-<link href="https://aptmac.github.io/author/aptmac/" rel="canonical"/>
+<link href="https://aptmac.github.io/how-to-install-jmc-agent-in-fedora/" rel="canonical"/>
 <meta content="no-referrer-when-downgrade" name="referrer"/>
+<link href="https://aptmac.github.io/how-to-install-jmc-agent-in-fedora/amp/" rel="amphtml"/>
 <meta content="Stuff, and things." property="og:site_name"/>
-<meta content="profile" property="og:type"/>
-<meta content="aptmac - Stuff, and things." property="og:title"/>
-<meta content="https://aptmac.github.io/author/aptmac/" property="og:url"/>
-<meta content="summary" name="twitter:card"/>
-<meta content="aptmac - Stuff, and things." name="twitter:title"/>
-<meta content="https://aptmac.github.io/author/aptmac/" name="twitter:url"/>
+<meta content="article" property="og:type"/>
+<meta content="How to install the JDK Mission Control Agent in Fedora via COPR" property="og:title"/>
+<meta content="In a previous post (link), I wrote about how to install JMC on Fedora via copr. I'm back with an update; the JMC Agent (v.1.0.1) is now available through copr as well! One of the big features included in the JMC 8.1.0 release was the" property="og:description"/>
+<meta content="https://aptmac.github.io/how-to-install-jmc-agent-in-fedora/" property="og:url"/>
+<meta content="https://aptmac.github.io/content/images/2021/12/copr-jmc-agent.png" property="og:image"/>
+<meta content="2021-12-14T18:00:00.000Z" property="article:published_time"/>
+<meta content="2021-12-14T22:33:55.000Z" property="article:modified_time"/>
+<meta content="Programming" property="article:tag"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="How to install the JDK Mission Control Agent in Fedora via COPR" name="twitter:title"/>
+<meta content="In a previous post (link), I wrote about how to install JMC on Fedora via copr. I'm back with an update; the JMC Agent (v.1.0.1) is now available through copr as well! One of the big features included in the JMC 8.1.0 release was the" name="twitter:description"/>
+<meta content="https://aptmac.github.io/how-to-install-jmc-agent-in-fedora/" name="twitter:url"/>
+<meta content="https://aptmac.github.io/content/images/2021/12/copr-jmc-agent.png" name="twitter:image"/>
+<meta content="Written by" name="twitter:label1"/>
+<meta content="aptmac" name="twitter:data1"/>
+<meta content="Filed under" name="twitter:label2"/>
+<meta content="Programming" name="twitter:data2"/>
 <meta content="@aptmac_" name="twitter:site"/>
+<meta content="788" property="og:image:width"/>
+<meta content="380" property="og:image:height"/>
 <script type="application/ld+json">
 {
     "@context": "https://schema.org",
-    "@type": "Person",
-    "sameAs": [],
-    "name": "aptmac",
-    "url": "https://aptmac.github.io/author/aptmac/",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Stuff, and things.",
+        "url": "https://aptmac.github.io/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://aptmac.github.io/favicon.png",
+            "width": 60,
+            "height": 60
+        }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "aptmac",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://aptmac.github.io/content/images/2021/07/a.jpg",
+            "width": 400,
+            "height": 400
+        },
+        "url": "https://aptmac.github.io/author/aptmac/",
+        "sameAs": []
+    },
+    "headline": "How to install the JDK Mission Control Agent in Fedora via COPR",
+    "url": "https://aptmac.github.io/how-to-install-jmc-agent-in-fedora/",
+    "datePublished": "2021-12-14T18:00:00.000Z",
+    "dateModified": "2021-12-14T22:33:55.000Z",
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://aptmac.github.io/content/images/2021/12/copr-jmc-agent.png",
+        "width": 788,
+        "height": 380
+    },
+    "keywords": "Programming",
+    "description": "In a previous post (link [https://aptmac.github.io/installing-jmc-in-fedora/]),\nI wrote about how to install JMC on Fedora via copr. I&#x27;m back with an update;\nthe JMC Agent (v.1.0.1) is now available through copr as well!\n\nOne of the big features included in the JMC 8.1.0 release was the JMC agent\nplugin, which provides a user-interface for interacting with the JMC agent. The\nagent itself can be used to add custom Flight Recorder events to a Java program\nalready in execution. The current issue is",
     "mainEntityOfPage": {
         "@type": "WebPage",
         "@id": "https://aptmac.github.io/"
@@ -36,7 +82,7 @@
 <meta content="Ghost 4.10" name="generator"/>
 <link href="https://aptmac.github.io/rss/" rel="alternate" title="Stuff, and things." type="application/rss+xml"/>
 </head>
-<body class="author-template author-aptmac">
+<body class="post-template tag-programming">
 <div class="viewport">
 <header class="gh-head" id="gh-head">
 <nav class="gh-head-inner inner gh-container">
@@ -68,53 +114,53 @@
 </nav>
 </header>
 <main>
-<section class="outer">
-<div class="inner posts">
-<header class="author-profile">
-<div class="author-profile-content">
-<img alt="aptmac" class="author-profile-pic" src="https://aptmac.github.io/content/images/2021/07/a.jpg"/>
-<h1>aptmac</h1>
-<p>
-                        4 posts published
-                </p>
-<div class="author-profile-meta">
-</div>
-</div>
-</header>
-<div class="post-feed">
-<article class="post-card post tag-programming">
-<a class="post-card-image-link" href="/how-to-install-jmc-agent-in-fedora/">
-<img alt="How to install the JDK Mission Control Agent in Fedora via COPR" class="post-card-image" loading="lazy" sizes="(max-width: 1000px) 400px, 800px" src="/content/images/size/w600/2021/12/copr-jmc-agent.png" srcset="/content/images/size/w300/2021/12/copr-jmc-agent.png 300w,
-                    /content/images/size/w600/2021/12/copr-jmc-agent.png 600w,
-                    /content/images/size/w1000/2021/12/copr-jmc-agent.png 1000w,
-                    /content/images/size/w2000/2021/12/copr-jmc-agent.png 2000w"/>
-</a>
-<div class="post-card-content">
-<a class="post-card-content-link" href="/how-to-install-jmc-agent-in-fedora/">
-<header class="post-card-header">
-<div class="post-card-primary-tag">Programming</div>
-<h2 class="post-card-title">How to install the JDK Mission Control Agent in Fedora via COPR</h2>
-</header>
-<section class="post-card-excerpt">
-<p>In a previous post (link), I wrote about how to install JMC on Fedora via copr. I'm back with an update; the JMC Agent (v.1.0.1) is now available through copr as well! One of the big features included in the JMC 8.1.0 release was the</p>
+<article class="article post tag-programming">
+<header class="article-header gh-canvas">
+<section class="article-tag">
+<a href="https://aptmac.github.io/tag/programming/">Programming</a>
 </section>
-</a>
-<footer class="post-card-meta">
+<h1 class="article-title">How to install the JDK Mission Control Agent in Fedora via COPR</h1>
+<div class="article-byline">
+<section class="article-byline-content">
 <ul class="author-list">
 <li class="author-list-item">
-<a class="static-avatar" href="/author/aptmac/">
+<a class="author-avatar" href="/author/aptmac/">
 <img alt="aptmac" class="author-profile-image" src="/content/images/size/w100/2021/07/a.jpg"/>
 </a>
 </li>
 </ul>
-<div class="post-card-byline-content">
-<span><a href="/author/aptmac/">aptmac</a></span>
-<span class="post-card-byline-date"><time datetime="2021-12-14">Dec 14, 2021</time> <span class="bull">•</span> 1 min read</span>
+<div class="article-byline-meta">
+<h4 class="author-name"><a href="/author/aptmac/">aptmac</a></h4>
+<div class="byline-meta-content">
+<time class="byline-meta-date" datetime="2021-12-14">Dec 14, 2021</time>
+<span class="byline-reading-time"><span class="bull">•</span> 1 min read</span>
 </div>
-</footer>
 </div>
+</section>
+</div>
+<figure class="article-image">
+<img alt="How to install the JDK Mission Control Agent in Fedora via COPR" sizes="(min-width: 1400px) 1400px, 92vw" src="/content/images/size/w2000/2021/12/copr-jmc-agent.png" srcset="/content/images/size/w300/2021/12/copr-jmc-agent.png 300w,
+                        /content/images/size/w600/2021/12/copr-jmc-agent.png 600w,
+                        /content/images/size/w1000/2021/12/copr-jmc-agent.png 1000w,
+                        /content/images/size/w2000/2021/12/copr-jmc-agent.png 2000w"/>
+<figcaption>JDK Mission Control Agent now (unofficially) available on Fedora via COPR !</figcaption>
+</figure>
+</header>
+<section class="gh-content gh-canvas">
+<p>In a previous post (<a href="https://aptmac.github.io/installing-jmc-in-fedora/">link</a>), I wrote about how to install JMC on Fedora via copr. I'm back with an update; the JMC Agent (v.1.0.1) is now available through copr as well!</p><p>One of the big features included in the JMC 8.1.0 release was the JMC agent plugin, which provides a user-interface for interacting with the JMC agent. The agent itself can be used to add custom Flight Recorder events to a Java program already in execution. The current issue is that the agent does not ship alongside JMC, and needs to be built separately from sources and imported into the JMC application. As a result, if you downloaded my JMC builds via copr, the only way to use the agent plugin would be to either build the agent yourself, or by finding a jar floating on the internet.</p><p>But, as the title of this blog post suggests, the agent can now be installed via copr as well! I have a copr repo set up (<a href="link">https://copr.fedorainfracloud.org/coprs/almac/jmc-agent/</a>), with builds currently for Fedora 34/35/Rawhide that can be installed using the following commands:</p><!--kg-card-begin: markdown--><pre><code>// 1. enable the copr repo
+$ dnf copr enable almac/jmc-agent
+
+// 2. install the jmc
+$ sudo dnf install jmc-agent
+
+// the agent jar will now be installed at /usr/share/java/jmc-agent/agent.jar
+</code></pre>
+<!--kg-card-end: markdown--><p>Now that you have the agent jar on your system, you can hook it up with JMC and start using the JMC agent plugin! Now, I <em>could</em> spend some time here and explain some of the features and basic instructions on how to use it .. or I could refer you to some great articles written by my colleagues, be sure to check them out!<br/><br/>JVM performance monitoring with JMC agent: <a href="https://developers.redhat.com/articles/2021/11/16/jvm-performance-monitoring-jmc-agent">https://developers.redhat.com/articles/2021/11/16/jvm-performance-monitoring-jmc-agent</a><br/><br/>Collect JDK Flight Recorder events at runtime with JMC Agent: <a href="https://developers.redhat.com/blog/2020/10/29/collect-jdk-flight-recorder-events-at-runtime-with-jmc-agent">https://developers.redhat.com/blog/2020/10/29/collect-jdk-flight-recorder-events-at-runtime-with-jmc-agent</a></p>
+</section>
 </article>
-<article class="post-card post tag-programming">
+<aside class="read-more-wrap">
+<div class="read-more inner">
+<article class="post-card post">
 <a class="post-card-image-link" href="/installing-jmc-in-fedora/">
 <img alt="How to install JDK Mission Control in Fedora via COPR" class="post-card-image" loading="lazy" sizes="(max-width: 1000px) 400px, 800px" src="/content/images/size/w600/2021/07/copr-jmc.png" srcset="/content/images/size/w300/2021/07/copr-jmc.png 300w,
                     /content/images/size/w600/2021/07/copr-jmc.png 600w,
@@ -124,7 +170,6 @@
 <div class="post-card-content">
 <a class="post-card-content-link" href="/installing-jmc-in-fedora/">
 <header class="post-card-header">
-<div class="post-card-primary-tag">Programming</div>
 <h2 class="post-card-title">How to install JDK Mission Control in Fedora via COPR</h2>
 </header>
 <section class="post-card-excerpt">
@@ -146,7 +191,7 @@
 </footer>
 </div>
 </article>
-<article class="post-card post tag-programming tag-fantasy-football">
+<article class="post-card post">
 <a class="post-card-image-link" href="/solving-daily-fantasy-football/">
 <img alt='"Solving" Daily Fantasy Football' class="post-card-image" loading="lazy" sizes="(max-width: 1000px) 400px, 800px" src="/content/images/size/w600/2021/07/dfs-helper.png" srcset="/content/images/size/w300/2021/07/dfs-helper.png 300w,
                     /content/images/size/w600/2021/07/dfs-helper.png 600w,
@@ -156,7 +201,6 @@
 <div class="post-card-content">
 <a class="post-card-content-link" href="/solving-daily-fantasy-football/">
 <header class="post-card-header">
-<div class="post-card-primary-tag">Programming</div>
 <h2 class="post-card-title">"Solving" Daily Fantasy Football</h2>
 </header>
 <section class="post-card-excerpt">
@@ -178,7 +222,7 @@
 </footer>
 </div>
 </article>
-<article class="post-card post tag-japanese">
+<article class="post-card post">
 <a class="post-card-image-link" href="/hello-world/">
 <img alt="Hello World!" class="post-card-image" loading="lazy" sizes="(max-width: 1000px) 400px, 800px" src="/content/images/size/w600/2021/07/a.png" srcset="/content/images/size/w300/2021/07/a.png 300w,
                     /content/images/size/w600/2021/07/a.png 600w,
@@ -188,7 +232,6 @@
 <div class="post-card-content">
 <a class="post-card-content-link" href="/hello-world/">
 <header class="post-card-header">
-<div class="post-card-primary-tag">日本語</div>
 <h2 class="post-card-title">Hello World!</h2>
 </header>
 <section class="post-card-excerpt">
@@ -211,8 +254,7 @@
 </div>
 </article>
 </div>
-</div>
-</section>
+</aside>
 </main>
 <footer class="site-footer outer">
 <div class="inner">
