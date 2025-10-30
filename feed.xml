@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2025-10-30T12:16:51-04:00</updated><id>/feed.xml</id><title type="html">Stuff, and Things.</title><subtitle>I put this blog together so I can easily publish updates on things I&apos;m working on, both work and hobby related. </subtitle><entry><title type="html">How to install JMC 9.1.1 and 10.0.0-SNAPSHOT in Fedora</title><link href="/jmc/2025/10/30/copr-jmc.html" rel="alternate" type="text/html" title="How to install JMC 9.1.1 and 10.0.0-SNAPSHOT in Fedora" /><published>2025-10-30T10:39:00-04:00</published><updated>2025-10-30T10:39:00-04:00</updated><id>/jmc/2025/10/30/copr-jmc</id><content type="html" xml:base="/jmc/2025/10/30/copr-jmc.html"><![CDATA[<p>It has been a while since the <a href="https://aptmac.github.io/jmc/2021/09/14/copr-jmc.html">last time</a> I prepared JDK Mission Control for Fedora using COPR.</p>
+
+<p>I’m back here to let everyone know that I’ve updated my repos, and will try to have JMC available through Fedora for the foreseeable future.</p>
+
+<p>I’m going to try and keep two repositories: one for the <a href="https://copr.fedorainfracloud.org/coprs/almac/jmc/">latest stable release</a> (9.1.1 currently), and one for the <a href="https://copr.fedorainfracloud.org/coprs/almac/jmc-snapshot/">latest SNAPSHOT build</a> (10.0.0-SNAPSHOT currently).</p>
+
+<p>Both of these repositories are simple wrappers around the Adoptium builds of JMC, so if you’re curious about the actual builds or where to find the binaries, please check out: <a href="https://github.com/adoptium/jmc-build">https://github.com/adoptium/jmc-build</a></p>
+
+<p>If you’re interested in the files that I use to setup COPR releases, please check out my repo at <a href="https://github.com/aptmac/adoptium-jmc-copr">https://github.com/aptmac/adoptium-jmc-copr</a></p>
+
+<p>You can enable the COPR repo and install them directly onto your Fedora machine using the following commands:</p>
+
+<p><strong>9.1.1</strong></p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">// <span class="nb">enable </span>the copr repo
+<span class="nv">$ </span>dnf copr <span class="nb">enable </span>almac/jmc
+
+// <span class="nb">install </span>jmc
+<span class="nv">$ </span><span class="nb">sudo </span>dnf <span class="nb">install </span>jmc
+
+// run jmc
+<span class="nv">$ </span>jmc</code></pre></figure>
+
+<p><strong>10.0.0-SNAPSHOT</strong></p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">// <span class="nb">enable </span>the copr repo
+<span class="nv">$ </span>dnf copr <span class="nb">enable </span>almac/jmc-snapshot
+
+// <span class="nb">install </span>jmc
+<span class="nv">$ </span><span class="nb">sudo </span>dnf <span class="nb">install </span>jmc
+
+// run jmc
+<span class="nv">$ </span>jmc</code></pre></figure>]]></content><author><name></name></author><category term="jmc" /><summary type="html"><![CDATA[It has been a while since the last time I prepared JDK Mission Control for Fedora using COPR.]]></summary></entry><entry><title type="html">ただいま</title><link href="/2025/10/30/tadaima.html" rel="alternate" type="text/html" title="ただいま" /><published>2025-10-30T10:32:00-04:00</published><updated>2025-10-30T10:32:00-04:00</updated><id>/2025/10/30/tadaima</id><content type="html" xml:base="/2025/10/30/tadaima.html"><![CDATA[<p>久しぶりですね。</p>
+
+<p>Back in 2021 I had originally set up my GitHub pages blog using Ghost and some custom static page generation scripts. While the blog looked nice, it is difficult to recreate that exact setup - especially with new versions of Ghost and it’s dependencies. So from here on out I’ll be using Jekyll pages, and hopefully that will allow me to post here with more frequency than one post every four years.</p>]]></content><author><name></name></author><summary type="html"><![CDATA[久しぶりですね。]]></summary></entry><entry><title type="html">How to install the JDK Mission Control Agent in Fedora via COPR</title><link href="/jmc/2021/12/14/copr-jmc-agent.html" rel="alternate" type="text/html" title="How to install the JDK Mission Control Agent in Fedora via COPR" /><published>2021-12-14T21:33:55-05:00</published><updated>2021-12-14T21:33:55-05:00</updated><id>/jmc/2021/12/14/copr-jmc-agent</id><content type="html" xml:base="/jmc/2021/12/14/copr-jmc-agent.html"><![CDATA[<p>In a previous post <a href="https://aptmac.github.io/jmc/2021/09/14/copr-jmc.html">link</a>, I wrote about how to install JMC on Fedora via copr. I’m back with an update; the JMC Agent (v.1.0.1) is now available through copr as well!</p>
+
+<p>One of the big features included in the JMC 8.1.0 release was the JMC agent plugin, which provides a user-interface for interacting with the JMC agent. The agent itself can be used to add custom Flight Recorder events to a Java program already in execution. The current issue is that the agent does not ship alongside JMC, and needs to be built separately from sources and imported into the JMC application. As a result, if you downloaded my JMC builds via copr, the only way to use the agent plugin would be to either build the agent yourself, or by finding a jar floating on the internet.</p>
+
+<p>But, as the title of this blog post suggests, the agent can now be installed via copr as well! I have a copr repo set up <a href="https://copr.fedorainfracloud.org/coprs/almac/jmc-agent/">https://copr.fedorainfracloud.org/coprs/almac/jmc-agent/</a>, with builds currently for Fedora 34/35/Rawhide that can be installed using the following commands:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">// 1. <span class="nb">enable </span>the copr repo
+<span class="nv">$ </span>dnf copr <span class="nb">enable </span>almac/jmc-agent
+
+// 2. <span class="nb">install </span>the jmc
+<span class="nv">$ </span><span class="nb">sudo </span>dnf <span class="nb">install </span>jmc-agent
+
+// the agent jar will now be installed at /usr/share/java/jmc-agent/agent.jar</code></pre></figure>
+
+<p>Now that you have the agent jar on your system, you can hook it up with JMC and start using the JMC agent plugin! Now, I could spend some time here and explain some of the features and basic instructions on how to use it .. or I could refer you to some great articles written by my colleagues, be sure to check them out!</p>
+
+<p>JVM performance monitoring with JMC agent: <a href="https://developers.redhat.com/articles/2021/11/16/jvm-performance-monitoring-jmc-agent">https://developers.redhat.com/articles/2021/11/16/jvm-performance-monitoring-jmc-agent</a></p>
+
+<p>Collect JDK Flight Recorder events at runtime with JMC Agent: <a href="https://developers.redhat.com/blog/2020/10/29/collect-jdk-flight-recorder-events-at-runtime-with-jmc-agent">https://developers.redhat.com/blog/2020/10/29/collect-jdk-flight-recorder-events-at-runtime-with-jmc-agent</a></p>]]></content><author><name></name></author><category term="jmc" /><summary type="html"><![CDATA[In a previous post link, I wrote about how to install JMC on Fedora via copr. I’m back with an update; the JMC Agent (v.1.0.1) is now available through copr as well!]]></summary></entry><entry><title type="html">How to install JDK Mission Control in Fedora via COPR</title><link href="/jmc/2021/09/14/copr-jmc.html" rel="alternate" type="text/html" title="How to install JDK Mission Control in Fedora via COPR" /><published>2021-09-14T17:05:28-04:00</published><updated>2021-09-14T17:05:28-04:00</updated><id>/jmc/2021/09/14/copr-jmc</id><content type="html" xml:base="/jmc/2021/09/14/copr-jmc.html"><![CDATA[<p>JDK Mission Control (JMC) is an open source tool suite for the Java Virtual Machine (JVM). It has an advanced set of tools for interacting with JDK Flight Recorder (JFR), and can be used to interpret and visualize data from flight recording files.</p>
+
+<p>Up until recently, JMC had been available for download in Fedora via the jmc module. However, as of August 2021 the JMC packages in Fedora have been retired.</p>
+
+<p>But fear not! JMC can be installed easily in Fedora via COPR, by enabling the following repo: <a href="https://copr.fedorainfracloud.org/coprs/almac/jmc8/">https://copr.fedorainfracloud.org/coprs/almac/jmc8/</a></p>
+
+<p>This repository acts as an RPM wrapper for the AdoptOpenJDK builds of JMC <a href="https://adoptopenjdk.net/jmc.html">https://adoptopenjdk.net/jmc.html</a>. The steps required to install and run JMC are:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">// <span class="nb">enable </span>the copr repo
+<span class="nv">$ </span>dnf copr <span class="nb">enable </span>almac/jmc8
+
+// <span class="nb">install </span>jmc
+<span class="nv">$ </span><span class="nb">sudo </span>dnf <span class="nb">install </span>jmc
+
+// run jmc
+<span class="nv">$ </span>jmc</code></pre></figure>
+
+<p>And that’s it! There may be a couple more steps involved if you already have an old Fedora supplied JMC installed (i.e., you’ll need to remove it), but this 3 step process will have you running JMC on your Fedora machine in no time. Give it a try today!</p>
+
+<p>The code and spec files used to generate the srpms for COPR can be found at the link below. If you run into any issues or complications, feel free to open an issue on the repo and I’ll take a look at it as soon as I can.</p>]]></content><author><name></name></author><category term="jmc" /><summary type="html"><![CDATA[JDK Mission Control (JMC) is an open source tool suite for the Java Virtual Machine (JVM). It has an advanced set of tools for interacting with JDK Flight Recorder (JFR), and can be used to interpret and visualize data from flight recording files.]]></summary></entry><entry><title type="html">Hello World!</title><link href="/2021/06/21/hello-world.html" rel="alternate" type="text/html" title="Hello World!" /><published>2021-06-21T17:02:09-04:00</published><updated>2021-06-21T17:02:09-04:00</updated><id>/2021/06/21/hello-world</id><content type="html" xml:base="/2021/06/21/hello-world.html"><![CDATA[<p>おはよう世界.</p>]]></content><author><name></name></author><summary type="html"><![CDATA[おはよう世界.]]></summary></entry></feed>

@@ -1,0 +1,29 @@
+---
+layout: post
+title:  "How to install JDK Mission Control in Fedora via COPR"
+date:   2021-09-14 17:05:28 -0400
+categories: jmc
+---
+
+JDK Mission Control (JMC) is an open source tool suite for the Java Virtual Machine (JVM). It has an advanced set of tools for interacting with JDK Flight Recorder (JFR), and can be used to interpret and visualize data from flight recording files.
+
+Up until recently, JMC had been available for download in Fedora via the jmc module. However, as of August 2021 the JMC packages in Fedora have been retired.
+
+But fear not! JMC can be installed easily in Fedora via COPR, by enabling the following repo: [https://copr.fedorainfracloud.org/coprs/almac/jmc8/](https://copr.fedorainfracloud.org/coprs/almac/jmc8/)
+
+This repository acts as an RPM wrapper for the AdoptOpenJDK builds of JMC [https://adoptopenjdk.net/jmc.html](https://adoptopenjdk.net/jmc.html). The steps required to install and run JMC are:
+
+{% highlight bash %}
+// enable the copr repo
+$ dnf copr enable almac/jmc8
+
+// install jmc
+$ sudo dnf install jmc
+
+// run jmc
+$ jmc
+{% endhighlight %}
+
+And that's it! There may be a couple more steps involved if you already have an old Fedora supplied JMC installed (i.e., you'll need to remove it), but this 3 step process will have you running JMC on your Fedora machine in no time. Give it a try today!
+
+The code and spec files used to generate the srpms for COPR can be found at the link below. If you run into any issues or complications, feel free to open an issue on the repo and I'll take a look at it as soon as I can.

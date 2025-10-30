@@ -1,0 +1,43 @@
+---
+layout: post
+title:  "How to install JMC 9.1.1 and 10.0.0-SNAPSHOT in Fedora"
+date:   2025-10-30 10:39:00 -0400
+categories: jmc
+---
+
+It has been a while since the [last time](https://aptmac.github.io/jmc/2021/09/14/copr-jmc.html) I prepared JDK Mission Control for Fedora using COPR. 
+
+I'm back here to let everyone know that I've updated my repos, and will try to have JMC available through Fedora for the foreseeable future.
+
+I'm going to try and keep two repositories: one for the [latest stable release](https://copr.fedorainfracloud.org/coprs/almac/jmc/) (9.1.1 currently), and one for the [latest SNAPSHOT build](https://copr.fedorainfracloud.org/coprs/almac/jmc-snapshot/) (10.0.0-SNAPSHOT currently).
+
+Both of these repositories are simple wrappers around the Adoptium builds of JMC, so if you're curious about the actual builds or where to find the binaries, please check out: [https://github.com/adoptium/jmc-build](https://github.com/adoptium/jmc-build)
+
+If you're interested in the files that I use to setup COPR releases, please check out my repo at [https://github.com/aptmac/adoptium-jmc-copr](https://github.com/aptmac/adoptium-jmc-copr)
+
+You can enable the COPR repo and install them directly onto your Fedora machine using the following commands:
+
+**9.1.1**
+
+{% highlight bash %}
+// enable the copr repo
+$ dnf copr enable almac/jmc
+
+// install jmc
+$ sudo dnf install jmc
+
+// run jmc
+$ jmc
+{% endhighlight %}
+
+**10.0.0-SNAPSHOT**
+{% highlight bash %}
+// enable the copr repo
+$ dnf copr enable almac/jmc-snapshot
+
+// install jmc
+$ sudo dnf install jmc
+
+// run jmc
+$ jmc
+{% endhighlight %}

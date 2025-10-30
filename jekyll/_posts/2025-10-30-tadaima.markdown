@@ -1,0 +1,10 @@
+---
+layout: post
+title:  "ただいま"
+date:   2025-10-30 10:32:00 -0400
+---
+
+久しぶりですね。
+
+Back in 2021 I had originally set up my GitHub pages blog using Ghost and some custom static page generation scripts. While the blog looked nice, it is difficult to recreate that exact setup - especially with new versions of Ghost and it's dependencies. So from here on out I'll be using Jekyll pages, and hopefully that will allow me to post here with more frequency than one post every four years.
+
