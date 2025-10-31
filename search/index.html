@@ -16,20 +16,20 @@
   
     
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Stuff, and Things. | I put this blog together so I can easily publish updates on things I’m working on, both work and hobby related.</title>
+<title>Search | Stuff, and Things.</title>
 <meta name="generator" content="Jekyll v4.4.1" />
-<meta property="og:title" content="Stuff, and Things." />
+<meta property="og:title" content="Search" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="I put this blog together so I can easily publish updates on things I’m working on, both work and hobby related." />
 <meta property="og:description" content="I put this blog together so I can easily publish updates on things I’m working on, both work and hobby related." />
-<link rel="canonical" href="/404.html" />
-<meta property="og:url" content="/404.html" />
+<link rel="canonical" href="/search/" />
+<meta property="og:url" content="/search/" />
 <meta property="og:site_name" content="Stuff, and Things." />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Stuff, and Things." />
+<meta property="twitter:title" content="Search" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","description":"I put this blog together so I can easily publish updates on things I’m working on, both work and hobby related.","headline":"Stuff, and Things.","url":"/404.html"}</script>
+{"@context":"https://schema.org","@type":"WebPage","description":"I put this blog together so I can easily publish updates on things I’m working on, both work and hobby related.","headline":"Search","url":"/search/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -54,7 +54,7 @@
 </head>
 
 
-  <body class="layout--page  ">
+  <body class="layout--search  search">
     <nav class="skip-links">
   <h2 class="screen-reader-text">Skip links</h2>
   <ul>
@@ -95,30 +95,18 @@
       <header class="page-header">
         
         
-          <h1 id="page-title" class="page-title"></h1>
+          <h1 id="page-title" class="page-title">Search</h1>
         
       </header>
       <div class="page-content">
-        <style type="text/css" media="screen">
-  .container {
-    margin: 10px auto;
-    max-width: 600px;
-    text-align: center;
-  }
-  h1 {
-    margin: 30px 0;
-    font-size: 4em;
-    line-height: 1;
-    letter-spacing: -1px;
-  }
-</style>
+        
 
-<div class="container">
-  <h1>404</h1>
 
-  <p><strong>Page not found :(</strong></p>
-  <p>The requested page could not be found.</p>
-</div>
+<form onsubmit="return false;">
+  <input type="input" id="search" class="search-input" placeholder="Enter your search term..." autofocus>
+</form>
+
+<div id="results"></div>
 
 
         
@@ -143,6 +131,68 @@
   <script src="/assets/js/main.min.js"></script>
   <script src="https://use.fontawesome.com/releases/v5.0.12/js/all.js"></script>
 
+<script src="/assets/js/lunr/lunr.min.js"></script>
+  <script src="/assets/js/search-data.js"></script>
+  <script>
+    var idx = lunr(function () {
+      
+      // the, the normal lunr index initialization
+      this.field('title')
+      this.field('excerpt')
+      this.field('categories')
+      this.field('tags')
+      this.ref('id')
+
+      this.pipeline.remove(lunr.trimmer)
+
+      // add documents to index
+      for (var item in store) {
+        this.add({
+          title: store[item].title,
+          excerpt: store[item].excerpt,
+          categories: store[item].categories,
+          tags: store[item].tags,
+          id: item
+        })
+      }
+    });
+
+    console.log(jQuery.type(idx));
+
+    $(document).ready(function () {
+      $('input#search').on('keyup', function () {
+        var resultdiv = $('#results');
+        var query = $(this).val().toLowerCase();
+        var result =
+          idx.query(function (q) {
+            query.split(lunr.tokenizer.separator).forEach(function (term) {
+              q.term(term, { boost: 100 })
+              if (query.lastIndexOf(" ") != query.length - 1) {
+                q.term(term, { usePipeline: false, wildcard: lunr.Query.wildcard.TRAILING, boost: 10 })
+              }
+              if (term != "") {
+                q.term(term, { usePipeline: false, editDistance: 1, boost: 1 })
+              }
+            })
+          });
+        resultdiv.empty();
+        resultdiv.prepend('<p class="results__found">' + result.length + ' Result(s) found</p>');
+        for (var item in result) {
+          var ref = result[item].ref;
+          var searchitem =
+            '<article class="entry">' +
+              '<h3 class="entry-title">' +
+                '<a href="' + store[ref].url + '">' + store[ref].title + '</a>' +
+              '</h3>' +
+              '<div class="entry-excerpt">' +
+                '<p>' + store[ref].excerpt.split(" ").splice(0, 20).join(" ") + '...</p>' +
+              '</div>' +
+            '</article>';
+          resultdiv.append(searchitem);
+        }
+      });
+    });
+  </script>
 
   </body>
 
