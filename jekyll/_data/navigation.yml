@@ -8,5 +8,7 @@
   url: /categories/
 # - title: Search
 #   url: /search/
+- title: Brain Freeze
+  url: /brain-freeze-bob # this will link to the Brain Freeze by Bob app
 - title: About
   url: /about/
